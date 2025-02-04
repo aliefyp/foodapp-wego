@@ -13,20 +13,25 @@
   --background: #f9fafb;
   --foreground: #111827;
 
-  --primary: #2563eb;
-  --primary-hover: #1e50c4;
-  --primary-active: #153a8a;
-  --primary-foreground: #ffffff;
+  --primary: #fac705;
+  --primary-hover: #fbbf24;
+  --primary-active: #f59e0b;
+  --primary-foreground: #111827;
 
-  --secondary: #f59e0b;
-  --secondary-hover: #d97706;
-  --secondary-active: #b45309;
-  --secondary-foreground: #ffffff;
+  --success: #10b981;
+  --success-hover: #0e9f6e;
+  --success-active: #0c7a5c;
+  --success-foreground: #ffffff;
 
-  --accent: #10b981;
-  --accent-hover: #0e9f6e;
-  --accent-active: #0c7a5c;
-  --accent-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-hover: #d97706;
+  --warning-active: #b45309;
+  --warning-foreground: #ffffff;
+
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --danger-active: #b91c1c;
+  --danger-foreground: #ffffff;
 
   --muted: #f3f4f6;
   --muted-hover: #e5e7eb;
@@ -34,7 +39,7 @@
   --muted-foreground: #6b7280;
 
   --border: #e5e7eb;
-  --input: #d1d5db;
+  --input: #ffffff;
   --card: #ffffff;
   --card-foreground: #1f2937;
   --shadow: rgba(0, 0, 0, 0.1);
@@ -45,28 +50,33 @@
   --background: #111827;
   --foreground: #f9fafb;
 
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --primary-active: #1e50c4;
-  --primary-foreground: #ffffff;
+  --primary: #fac705;
+  --primary-hover: #fbbf24;
+  --primary-active: #f59e0b;
+  --primary-foreground: #111827;
 
-  --secondary: #fbbf24;
-  --secondary-hover: #f59e0b;
-  --secondary-active: #d97706;
-  --secondary-foreground: #111827;
+  --success: #34d399;
+  --success-hover: #10b981;
+  --success-active: #0e9f6e;
+  --success-foreground: #111827;
 
-  --accent: #34d399;
-  --accent-hover: #10b981;
-  --accent-active: #0e9f6e;
-  --accent-foreground: #111827;
+  --warning: #fbbf24;
+  --warning-hover: #f59e0b;
+  --warning-active: #d97706;
+  --warning-foreground: #111827;
 
-  --muted: #1f2937;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --danger-active: #b91c1c;
+  --danger-foreground: #ffffff;
+
+  --muted: #2b3a4e;
   --muted-hover: #374151;
   --muted-active: #4b5563;
   --muted-foreground: #9ca3af;
 
   --border: #374151;
-  --input: #4b5563;
+  --input: #1f2937;
   --card: #1f2937;
   --card-foreground: #f9fafb;
   --shadow: rgba(255, 255, 255, 0.1);
@@ -131,6 +141,7 @@ h6 {
   isolation: isolate;
 }
 
+/* ========== STYLES ========== */
 body {
   background-color: var(--background);
   color: var(--foreground);

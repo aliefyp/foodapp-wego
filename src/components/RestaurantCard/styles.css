@@ -1,0 +1,53 @@
+.restaurant-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px var(--shadow);
+  background-color: var(--card);
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-image: url("./restaurant-placeholder.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.restaurant-card .content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.restaurant-card h3 {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.restaurant-card .tag-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.restaurant-card .tag {
+  padding: 2px 4px;
+  background-color: var(--muted);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.restaurant-card .tag.highlight {
+  color: var(--success);
+}
+
+.restaurant-card:focus,
+.restaurant-card:active {
+  outline: 2px solid var(--primary);
+}
