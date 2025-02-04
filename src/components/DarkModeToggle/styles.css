@@ -1,0 +1,31 @@
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 24px;
+  width: 40px;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: var(--input);
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--background);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.toggle.active .toggle-button {
+  transform: translateX(16px);
+}
