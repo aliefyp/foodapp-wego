@@ -3,6 +3,8 @@
   overflow: hidden;
   box-shadow: 0 2px 4px var(--shadow);
   background-color: var(--card);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .restaurant-card img {
@@ -47,7 +49,11 @@
   color: var(--success);
 }
 
-.restaurant-card:focus,
-.restaurant-card:active {
+.restaurant-card:focus {
   outline: 2px solid var(--primary);
+}
+
+.restaurant-card:hover {
+  box-shadow: 0 4px 8px var(--shadow);
+  transform: scale(1.05);
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import './styles.css';
 
@@ -6,13 +6,14 @@ export default function DarkModeToggle() {
   // Check user preference from localStorage
   const storedTheme = localStorage.getItem("theme");
   const [darkMode, setDarkMode] = useState(storedTheme === "dark");
+  const [isFocus, setIsFocus] = useState(false);
 
   // Function to toggle dark mode
-  const toggleDarkMode = () => {
+  const toggleDarkMode = useCallback(() => {
     const newMode = !darkMode;
     setDarkMode(newMode);
     localStorage.setItem("theme", newMode ? "dark" : "light");
-  };
+  }, [darkMode]);
 
   // Apply the theme to body when component mounts or darkMode changes
   useEffect(() => {
@@ -23,10 +24,33 @@ export default function DarkModeToggle() {
     }
   }, [darkMode]);
 
+  // Add event listener to toggle dark mode
+  useEffect(() => {
+    const listener = (event: KeyboardEvent) => {
+      if ((event.key === 'Enter' || event.key === ' ') && isFocus) {
+        toggleDarkMode()
+      }
+    }
+
+    // add listener
+    document.addEventListener('keydown', listener)
+
+    // remove listener
+    return () => {
+      document.removeEventListener('keydown', listener)
+    }
+  }, [darkMode, isFocus, toggleDarkMode])
+
   return (
     <div className="toggle-wrapper">
       {darkMode ? <HiOutlineMoon /> : <HiOutlineSun />}
-      <div className={`toggle ${darkMode ? "active" : ""}`} onClick={toggleDarkMode}>
+      <div
+        tabIndex={0}
+        className={`toggle ${darkMode ? "active" : ""}`}
+        onClick={toggleDarkMode}
+        onFocus={() => setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
+      >
         <div className="toggle-button"></div>
       </div>
     </div>

@@ -1,0 +1,8 @@
+.tabs-wrapper {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  overflow: hidden;
+}

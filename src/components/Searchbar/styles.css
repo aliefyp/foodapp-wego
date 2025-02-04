@@ -8,7 +8,7 @@
   color: var(--foreground);
   box-shadow: 0 2px 4px var(--shadow);
   max-width: 500px;
-  transition: background-color 0.3s ease-out outlined 0.3s ease-out;
+  transition: background-color 0.3s ease-out, outlined 0.3s ease-out;
 }
 
 .searchbar-wrapper svg {

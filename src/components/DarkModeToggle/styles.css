@@ -13,19 +13,23 @@
   padding: 4px;
   cursor: pointer;
   border-radius: 50px;
-  background-color: var(--foreground);
+  background-color: var(--muted-hover);
   transition: background-color 0.3s ease;
 }
 
-.toggle-button {
+.toggle .toggle-button {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: var(--background);
+  background-color: var(--muted-foreground);
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .toggle.active .toggle-button {
   transform: translateX(16px);
+}
+
+.toggle:focus {
+  outline: 2px solid var(--primary);
 }

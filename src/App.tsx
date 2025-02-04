@@ -3,6 +3,8 @@ import DarkModeToggle from './components/DarkModeToggle'
 import RestaurantCard from './components/RestaurantCard'
 import RestaurantGrid from './components/RestaurantGrid'
 import Searchbar from './components/Searchbar'
+import Tab from './components/Tab'
+import Tabs from './components/Tabs'
 
 const dummy = [
   {
@@ -54,7 +56,12 @@ function App() {
       </nav>
       <main>
         <Searchbar />
-        <RestaurantGrid>
+        <Tabs style={{ marginTop: '40px' }}>
+          <Tab active>All</Tab>
+          <Tab onClick={() => console.log('Shushi')}>Shushi</Tab>
+          <Tab>Drinks</Tab>
+        </Tabs>
+        <RestaurantGrid style={{ marginTop: '40px' }}>
           {dummy.map((item) => (
             <RestaurantCard
               key={item.id}

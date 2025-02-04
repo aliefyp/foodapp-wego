@@ -17,9 +17,14 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
   isNew,
   minCookTime,
   maxCookTime,
+  ...restProps
 }) => {
   return (
-    <div className="restaurant-card" tabIndex={0}>
+    <div
+      className="restaurant-card"
+      tabIndex={0}
+      {...restProps}
+    >
       <img src={image} alt={name} />
       <div className="content">
         <h3>{name}</h3>
