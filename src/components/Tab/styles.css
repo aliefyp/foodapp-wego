@@ -1,9 +1,10 @@
 .tab-wrapper {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 8px 24px;
   background-color: var(--input);
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
 }
 
 .tab-wrapper.active {
@@ -23,6 +24,8 @@
   border: none;
 }
 
-.tab-wrapper:not(:last-child) {
-  border-right: 2px solid var(--primary);
+@media screen and (max-width: 768px) {
+  .tab-wrapper {
+    border-radius: 8px;
+  }
 }

@@ -7,11 +7,13 @@ interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Tabs: React.FC<TabsProps> = ({ children, className, ...restProps }) => {
   return (
-    <div
-      className={`tabs-wrapper ${className}`}
-      {...restProps}
-    >
-      {children}
+    <div className="tabs-wrapper">
+      <div
+        className={`tabs-container ${className}`}
+        {...restProps}
+      >
+        {children}
+      </div>
     </div>
   )
 }

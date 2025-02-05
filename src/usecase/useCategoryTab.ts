@@ -23,7 +23,10 @@ const useCategoryTab = ({ items }: UseCategoryTabProps): UseCategoryTabInterface
     setActiveTab(id);
   }
 
-  const categoryTabs = [{ id: '', name: 'All', isActive: activeTab === '' }, ...items.map((item) => ({ ...item, isActive: activeTab === item.id }))];
+  const categoryTabs = [
+    { id: '', name: 'All', isActive: activeTab === '' },
+    ...items.map((item) => ({ ...item, isActive: activeTab === item.id }))
+  ];
   
   return {
     categoryTabs,

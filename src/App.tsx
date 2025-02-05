@@ -6,6 +6,7 @@ import Searchbar from './components/Searchbar'
 import Tab from './components/Tab'
 import Tabs from './components/Tabs'
 import useFoodCategories from './hooks/useFoodCategories'
+import useFoodList from './hooks/useFoodList'
 import useCategoryTab from './usecase/useCategoryTab'
 
 const dummy = [
@@ -51,13 +52,12 @@ const dummy = [
 ]
 
 function App() {
-  const { foodCategories, loading, error } = useFoodCategories();
+  const { foodCategories, loading: loadingFoodCategories, error: errorFoodCategories } = useFoodCategories();
+  const { foodList, loading: loadingFoodList, error: errorFoodList } = useFoodList();
 
   const { categoryTabs, handleTabClick } = useCategoryTab({
     items: foodCategories.map((item) => ({ id: item.id, name: item.name }))
   })
-
-  console.log(categoryTabs)
 
   return (
     <>
@@ -66,7 +66,7 @@ function App() {
       </nav>
       <main>
         <Searchbar />
-        <Tabs style={{ marginTop: '40px' }}>
+        <Tabs>
           {categoryTabs.map((tab) => (
             <Tab
               key={tab.id}
@@ -77,12 +77,13 @@ function App() {
             </Tab>
           ))}
         </Tabs>
-        <RestaurantGrid style={{ marginTop: '40px' }}>
-          {dummy.map((item) => (
+        <RestaurantGrid>
+          {foodList.map((item) => (
             <RestaurantCard
               key={item.id}
               image={item.imageUrl}
               name={item.name}
+              promotion={item.promotion}
               rating={item.rating}
               isNew={item.isNew}
               minCookTime={item.minCookTime}

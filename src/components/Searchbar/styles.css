@@ -7,7 +7,7 @@
   background-color: var(--input);
   color: var(--foreground);
   box-shadow: 0 2px 4px var(--shadow);
-  max-width: 500px;
+  max-width: 400px;
   transition: background-color 0.3s ease-out, outlined 0.3s ease-out;
 }
 

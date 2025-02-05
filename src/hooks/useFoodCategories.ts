@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Categories } from "../types/foodCategories";
+import { Root as Categories } from "../types/foodCategories";
 import useFetch from "./useFetch";
 
 interface UseFoodCategories {
@@ -23,7 +23,6 @@ const useFoodCategories = (): UseFoodCategories => {
       );
       setFoodCategories(response);
     } catch (error) {
-      console.log(error)
       setError((error as Error).message);
     } finally {
       setLoading(false);

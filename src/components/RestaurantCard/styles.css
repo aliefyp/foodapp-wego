@@ -4,7 +4,9 @@
   box-shadow: 0 2px 4px var(--shadow);
   background-color: var(--card);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+  animation: card-reveal 0.3s ease-out;
 }
 
 .restaurant-card img {
@@ -29,12 +31,12 @@
   font-weight: 500;
 }
 
-.restaurant-card .tag-wrapper {
+.restaurant-card .label-wrapper {
   display: flex;
   gap: 8px;
 }
 
-.restaurant-card .tag {
+.restaurant-card .label {
   padding: 2px 4px;
   background-color: var(--muted);
   border-radius: 4px;
@@ -45,7 +47,7 @@
   align-items: center;
 }
 
-.restaurant-card .tag.highlight {
+.restaurant-card .label.highlight {
   color: var(--success);
 }
 
@@ -56,4 +58,31 @@
 .restaurant-card:hover {
   box-shadow: 0 4px 8px var(--shadow);
   transform: scale(1.05);
+}
+
+.restaurant-card .promotion-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  height: 32px;
+  width: 56px;
+  color: var(--background);
+  font-weight: 600;
+  border-radius: 16px 0 16px 0;
+  font-size: 0.875rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@keyframes card-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
