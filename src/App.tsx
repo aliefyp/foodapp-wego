@@ -5,6 +5,8 @@ import RestaurantGrid from './components/RestaurantGrid'
 import Searchbar from './components/Searchbar'
 import Tab from './components/Tab'
 import Tabs from './components/Tabs'
+import useFoodCategories from './hooks/useFoodCategories'
+import useCategoryTab from './usecase/useCategoryTab'
 
 const dummy = [
   {
@@ -49,6 +51,14 @@ const dummy = [
 ]
 
 function App() {
+  const { foodCategories, loading, error } = useFoodCategories();
+
+  const { categoryTabs, handleTabClick } = useCategoryTab({
+    items: foodCategories.map((item) => ({ id: item.id, name: item.name }))
+  })
+
+  console.log(categoryTabs)
+
   return (
     <>
       <nav>
@@ -57,9 +67,15 @@ function App() {
       <main>
         <Searchbar />
         <Tabs style={{ marginTop: '40px' }}>
-          <Tab active>All</Tab>
-          <Tab onClick={() => console.log('Shushi')}>Shushi</Tab>
-          <Tab>Drinks</Tab>
+          {categoryTabs.map((tab) => (
+            <Tab
+              key={tab.id}
+              active={tab.isActive}
+              onClick={() => handleTabClick(tab.id)}
+            >
+              {tab.name}
+            </Tab>
+          ))}
         </Tabs>
         <RestaurantGrid style={{ marginTop: '40px' }}>
           {dummy.map((item) => (

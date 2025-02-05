@@ -3,6 +3,7 @@
   padding: 8px 16px;
   background-color: var(--input);
   cursor: pointer;
+  user-select: none;
 }
 
 .tab-wrapper.active {
