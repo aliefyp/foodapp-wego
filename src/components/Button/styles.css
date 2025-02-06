@@ -1,0 +1,34 @@
+.button-wrapper {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--primary);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: background-color 0.3s ease-out;
+}
+
+.button-wrapper.primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.button-wrapper.primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.button-wrapper.secondary {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.button-wrapper.secondary:hover {
+  background-color: var(--muted);
+}

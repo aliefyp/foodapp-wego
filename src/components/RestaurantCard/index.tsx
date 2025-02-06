@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { HiGift, HiStar } from 'react-icons/hi';
 import './styles.css';
 
@@ -41,13 +42,17 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
 }) => {
   const activePromo = PROMO_ATTRIBUTES.find((item) => promotion?.toLowerCase().includes(item.key))
 
+  if (name.includes('628b5decc94a27754f30e6f1')) {
+    console.log('render')
+  }
+
   return (
     <div
       className="restaurant-card"
       tabIndex={0}
       {...restProps}
     >
-      <img src={image} alt={name} />
+      <img src={image} alt={name} loading="lazy" />
       <div className="content">
         {activePromo && (
           <div className='promotion-wrapper' style={{ backgroundColor: activePromo.color }}>
@@ -68,4 +73,4 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
   )
 }
 
-export default RestaurantCard;
+export default memo(RestaurantCard);

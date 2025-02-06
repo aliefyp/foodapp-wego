@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
 import { Root as FoodList } from "../types/foodList";
 import useFetch from "./useFetch";
 
@@ -19,6 +20,8 @@ const useFoodList = (): UseFoodList => {
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(9);
   const fetchData = useFetch();
+
+  const [debouncedQuery] = useDebounce(searchQuery, 500);
 
   const fetchFoodList = useCallback(async () => {
     try {
@@ -50,8 +53,8 @@ const useFoodList = (): UseFoodList => {
   }, [skip, limit]);
 
   const filteredFoodList = foodList
-    .filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
-    .slice(skip, skip + limit);
+    .filter(item => item.name.toLowerCase().includes(debouncedQuery.toLowerCase()))
+    .slice(0, skip + limit);
 
   return {
     error,
