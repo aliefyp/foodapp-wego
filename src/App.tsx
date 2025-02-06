@@ -12,12 +12,29 @@ import useFoodList from './hooks/useFoodList'
 import useCategoryTab from './usecase/useCategoryTab'
 
 function App() {
-  const { foodCategories, loading: loadingFoodCategories, error: errorFoodCategories } = useFoodCategories();
-  const { foodList, loading: loadingFoodList, error: errorFoodList, loadMore, search } = useFoodList();
+  const {
+    foodCategories,
+    loading: loadingFoodCategories,
+    error: errorFoodCategories,
+  } = useFoodCategories();
+
+  const {
+    foodList,
+    loading: loadingFoodList,
+    error: errorFoodList,
+    loadMore,
+    search,
+    filterByCategory,
+  } = useFoodList();
 
   const { categoryTabs, handleTabClick } = useCategoryTab({
     items: foodCategories.map((item) => ({ id: item.id, name: item.name }))
   })
+
+  const handleTabChange = (id: string) => {
+    filterByCategory(id);
+    handleTabClick(id);
+  };
 
   return (
     <>
@@ -31,7 +48,7 @@ function App() {
             <Tab
               key={tab.id}
               active={tab.isActive}
-              onClick={() => handleTabClick(tab.id)}
+              onClick={() => handleTabChange(tab.id)}
             >
               {tab.name}
             </Tab>

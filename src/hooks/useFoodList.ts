@@ -10,13 +10,15 @@ interface UseFoodList {
   refetch: () => Promise<void>;
   search: (query: string) => void;
   loadMore: () => void;
+  filterByCategory: (categoryId: string) => void;
 }
 
 const useFoodList = (): UseFoodList => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] =  useState('');
+  const [error, setError] = useState('');
   const [foodList, setFoodList] = useState<FoodList['foods']>([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(9);
   const fetchData = useFetch();
@@ -52,8 +54,14 @@ const useFoodList = (): UseFoodList => {
     setSkip(skip + limit);
   }, [skip, limit]);
 
+  const filterByCategory = useCallback((categoryId: string) => {
+    setCategoryFilter(categoryId);
+    setSkip(0);
+  }, []);
+
   const filteredFoodList = foodList
     .filter(item => item.name.toLowerCase().includes(debouncedQuery.toLowerCase()))
+    .filter(item => categoryFilter ? item.categoryId === categoryFilter : true)
     .slice(0, skip + limit);
 
   return {
@@ -62,8 +70,10 @@ const useFoodList = (): UseFoodList => {
     foodList: filteredFoodList,
     refetch: fetchFoodList,
     search,
-    loadMore
+    loadMore,
+    filterByCategory
   }
 }
 
 export default useFoodList;
+
