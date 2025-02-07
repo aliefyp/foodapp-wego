@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
+import { DEFAULT_LIMIT } from "../constants";
 import { Root as FoodList } from "../types/foodList";
 
 interface UseFoodFilterInterface {
@@ -17,7 +18,7 @@ interface UseFoodFilterProps {
 const useFoodFilter = ({ foodList, categoryId }: UseFoodFilterProps): UseFoodFilterInterface => {
   const [searchQuery, setSearchQuery] = useState('');
   const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(12);
+  const [limit, setLimit] = useState(DEFAULT_LIMIT);
 
   const [debouncedQuery] = useDebounce(searchQuery, 500);
 

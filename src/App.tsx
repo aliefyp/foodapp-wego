@@ -50,7 +50,7 @@ function App() {
         <Container>
           <div className='content-wrapper'>
             <Searchbar onChange={event => searchFood((event.target as HTMLInputElement).value)} />
-            <Tab>
+            <Tab loading={loadingFoodCategories}>
               {categoryList.map((tab) => (
                 <TabItem
                   key={tab.id}
@@ -61,7 +61,7 @@ function App() {
                 </TabItem>
               ))}
             </Tab>
-            <RestaurantGrid>
+            <RestaurantGrid loading={loadingFoodList}>
               {filteredFoodList.map((item) => (
                 <RestaurantCard
                   key={item.id}
@@ -80,6 +80,7 @@ function App() {
               startIcon={<HiOutlinePlus />}
               style={{ margin: 'auto' }}
               onClick={loadMoreFood}
+              disabled={loadingFoodList || !!errorFoodList}
             >
               Show more
             </Button>
