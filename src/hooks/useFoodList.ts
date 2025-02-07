@@ -30,10 +30,8 @@ const useFoodList = (): UseFoodList => {
   }, [fetchData]);
 
   useEffect(() => {
-    if (loading) {
-      fetchFoodList();
-    }
-  }, [fetchFoodList, fetchData, loading]);
+    fetchFoodList();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     error,

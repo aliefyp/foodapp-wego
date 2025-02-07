@@ -1,0 +1,12 @@
+.food-list-page-wrapper {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .food-list-page-wrapper {
+    gap: 24px;
+  }
+}

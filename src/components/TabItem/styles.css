@@ -21,11 +21,14 @@
 .tab-item:focus {
   background-color: var(--muted);
   outline: none;
-  border: none;
 }
 
 @media screen and (max-width: 768px) {
   .tab-item {
     border-radius: 8px;
+  }
+
+  .tab-item:hover {
+    border: none;
   }
 }

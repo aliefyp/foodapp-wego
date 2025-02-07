@@ -4,7 +4,7 @@ import './styles.css';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  variant: "primary" | "secondary";
+  variant?: "primary" | "secondary";
 }
 
 const Button: React.FC<ButtonProps> = ({
