@@ -1,9 +1,6 @@
 import { useEffect } from 'react';
-import { HiOutlinePlus } from 'react-icons/hi';
-import Button from '../../components/Button';
 import Container from '../../components/Container';
 import NavBar from '../../components/NavBar';
-import RestaurantCard from '../../components/RestaurantCard';
 import RestaurantGrid from '../../components/RestaurantGrid';
 import Searchbar from '../../components/Searchbar';
 import Tab from '../../components/Tab';
@@ -80,32 +77,10 @@ const FoodListPage = () => {
             <RestaurantGrid
               loading={loadingFoodList}
               error={errorFoodList}
+              items={filteredFoodList}
               onError={refetchFoodList}
-            >
-              {filteredFoodList.map((item) => (
-                <RestaurantCard
-                  key={item.id}
-                  image={item.imageUrl}
-                  name={item.name}
-                  promotion={item.promotion}
-                  rating={item.rating}
-                  isNew={item.isNew}
-                  minCookTime={item.minCookTime}
-                  maxCookTime={item.maxCookTime}
-                />
-              ))}
-            </RestaurantGrid>
-            {!errorFoodList && (
-              <Button
-                variant="secondary"
-                startIcon={<HiOutlinePlus />}
-                style={{ margin: 'auto' }}
-                onClick={loadMoreFood}
-                disabled={loadingFoodList || !!errorFoodList}
-              >
-                Show more
-              </Button>
-            )}
+              onLoadMore={loadMoreFood}
+            />
           </div>
         </Container>
       </main>
