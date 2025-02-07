@@ -56,7 +56,7 @@ const FoodListPage = () => {
       <NavBar />
       <main>
         <Container>
-          <div className='food-list-page-wrapper'>
+          <div className='food-list-page'>
             <Searchbar
               value={searchQuery}
               onChange={handleSearchChange}

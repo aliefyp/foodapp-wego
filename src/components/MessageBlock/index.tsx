@@ -20,8 +20,15 @@ const MessageBlock: React.FC<MessageBlockProps> = ({
 }) => {
   return (
     <div className="message-block">
-      {image && <img src={image} alt={imageAlt} height={80} />}
-      <div className="content">
+      {image && (
+        <img
+          className="message-block__image"
+          src={image}
+          alt={imageAlt}
+          height={80}
+        />
+      )}
+      <div className="message-block__content">
         {title && <h2>{title}</h2>}
         {message && <p>{message}</p>}
       </div>

@@ -1,4 +1,4 @@
-.searchbar-wrapper {
+.gsearchbar {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -11,7 +11,21 @@
   transition: background-color 0.3s ease-out, outlined 0.3s ease-out;
 }
 
-.searchbar-wrapper .clear-button {
+.gsearchbar input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.gsearchbar:has(input:active),
+.gsearchbar:has(input:focus) {
+  outline: 2px solid var(--primary);
+}
+
+.gsearchbar .gsearchbar__clear {
   margin-right: 8px;
   flex-shrink: 0;
   width: 20px;
@@ -24,20 +38,6 @@
   border-radius: 50%;
 }
 
-.searchbar-wrapper .clear-button:hover {
+.gsearchbar .gsearchbar__clear:hover {
   background-color: var(--muted-hover);
-}
-
-.searchbar-wrapper input {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: var(--text-color);
-  width: 100%;
-  font-size: 0.875rem;
-}
-
-.searchbar-wrapper:has(input:active),
-.searchbar-wrapper:has(input:focus) {
-  outline: 2px solid var(--primary);
 }

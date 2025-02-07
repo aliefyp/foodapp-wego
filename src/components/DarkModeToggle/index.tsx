@@ -42,16 +42,16 @@ export default function DarkModeToggle() {
   }, [darkMode, isFocus, toggleDarkMode])
 
   return (
-    <div className="toggle-wrapper">
+    <div className="darkmode">
       {darkMode ? <HiOutlineMoon /> : <HiOutlineSun />}
       <div
         tabIndex={0}
-        className={`toggle ${darkMode ? "active" : ""}`}
+        className={`darkmode__switch ${darkMode ? "darkmode__switch--active" : ""}`}
         onClick={toggleDarkMode}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
       >
-        <div className="toggle-button"></div>
+        <div className="darkmode__button" />
       </div>
     </div>
   );

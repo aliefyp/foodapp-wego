@@ -23,9 +23,9 @@ const Tab: React.FC<TabProps> = ({
   }
 
   return (
-    <div className="tab-wrapper">
+    <div className="gtabs">
       <div
-        className={`tab-container ${className}`}
+        className={`gtabs__container ${className || ''}`}
         {...restProps}
       >
         {items.map((item, index) => (

@@ -34,7 +34,7 @@ const TabItem: React.FC<TabItemProps> = ({
 
   return (
     <div
-      className={`tab-item ${active ? 'active' : ''}`}
+      className={`gtab-item ${active ? 'gtab-item--active' : ''}`}
       tabIndex={0}
       onClick={onClick}
       onFocus={() => setIsFocus(true)}

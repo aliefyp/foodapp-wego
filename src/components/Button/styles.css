@@ -1,4 +1,4 @@
-.button-wrapper {
+.gbtn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -14,25 +14,25 @@
   transition: background-color 0.3s ease-out;
 }
 
-.button-wrapper.primary {
+.gbtn.gbtn--primary {
   background-color: var(--primary);
   color: var(--primary-foreground);
 }
 
-.button-wrapper.primary:hover {
+.gbtn.gbtn--primary:hover {
   background-color: var(--primary-hover);
 }
 
-.button-wrapper.secondary {
+.gbtn.gbtn--secondary {
   background-color: var(--background);
   color: var(--foreground);
 }
 
-.button-wrapper.secondary:hover {
+.gbtn.gbtn--secondary:hover {
   background-color: var(--muted);
 }
 
-.button-wrapper:disabled {
+.gbtn:disabled {
   cursor: not-allowed;
   opacity: 0.7;
 }

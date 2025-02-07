@@ -44,25 +44,32 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
 
   return (
     <div
-      className="restaurant-card"
+      className="rcard"
       tabIndex={0}
       {...restProps}
     >
-      <img src={image} alt={name} loading="lazy" />
-      <div className="content">
+      <img className="rcard__image" src={image} alt={name} loading="lazy" />
+      <div className="rcard__content">
         {activePromo && (
-          <div className='promotion-wrapper' style={{ backgroundColor: activePromo.color }}>
+          <div
+            className="rcard__promo"
+            style={{ backgroundColor: activePromo.color }}
+          >
             {activePromo.render}
           </div>
         )}
-        <h3>{name}</h3>
-        <div className="label-wrapper">
-          <span className='label'>
+        <h3 className="rcard__title">{name}</h3>
+        <div className="rcard__label-block">
+          <span className="rcard__label-item">
             <HiStar />
             {rating.toPrecision(2)}
           </span>
-          <span className="label">{minCookTime}-{maxCookTime} min</span>
-          {isNew && <span className="label highlight">New</span>}
+          <span className="rcard__label-item">
+            {minCookTime}-{maxCookTime} min
+          </span>
+          {isNew && (
+            <span className="rcard__label-item rcard__label-item--highlight">New</span>
+          )}
         </div>
       </div>
     </div>

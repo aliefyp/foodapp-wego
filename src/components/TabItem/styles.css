@@ -1,4 +1,4 @@
-.tab-item {
+.gtab-item {
   display: inline-block;
   padding: 8px 24px;
   background-color: var(--input);
@@ -7,28 +7,28 @@
   white-space: nowrap;
 }
 
-.tab-item.active {
+.gtab-item.gtab-item--active {
   background-color: var(--primary);
   color: var(--primary-foreground);
 }
 
-.tab-item.active:hover,
-.tab-item.active:focus {
+.gtab-item.gtab-item--active:hover,
+.gtab-item.gtab-item--active:focus {
   background-color: var(--primary-hover);
 }
 
-.tab-item:hover,
-.tab-item:focus {
+.gtab-item:hover,
+.gtab-item:focus {
   background-color: var(--muted);
   outline: none;
 }
 
 @media screen and (max-width: 768px) {
-  .tab-item {
+  .gtab-item {
     border-radius: 8px;
   }
 
-  .tab-item:hover {
+  .gtab-item:hover {
     border: none;
   }
 }

@@ -9,7 +9,7 @@ interface SearchbarProps extends React.HTMLAttributes<HTMLInputElement> {
 
 const Searchbar = ({ value, onChange, onClear, ...rest }: SearchbarProps) => {
   return (
-    <div className="searchbar-wrapper">
+    <div className="gsearchbar">
       <HiOutlineSearch />
       <input
         type="search"
@@ -19,7 +19,7 @@ const Searchbar = ({ value, onChange, onClear, ...rest }: SearchbarProps) => {
         {...rest}
       />
       {value && (
-        <div className='clear-button'>
+        <div className='gsearchbar__clear'>
           <HiOutlineX size={16} onClick={onClear} />
         </div>
       )}

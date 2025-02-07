@@ -26,7 +26,7 @@ const RestaurantGrid: React.FC<RestaurantGridProps> = ({
 }) => {
   if (loading) {
     return (
-      <div className="restaurant-wrapper">
+      <div className="rgrid__grid">
         {[...new Array(DEFAULT_LIMIT)].map((_, index) => (
           <Loader key={index} style={{ height: 280 }} />
         ))}
@@ -57,8 +57,8 @@ const RestaurantGrid: React.FC<RestaurantGridProps> = ({
   }
 
   return (
-    <div className='restaurant-wrapper'>
-      <div className={`restaurant-grid ${className}`} {...restProps}>
+    <div className='rgrid'>
+      <div className={`rgrid__grid ${className || ''}`} {...restProps}>
         {items.map((item) => (
           <RestaurantCard
             key={item.id}

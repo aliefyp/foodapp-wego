@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    <button className={`button-wrapper ${variant} ${className}`} {...rest}>
+    <button className={`gbtn ${variant && `gbtn--${variant}`} ${className || ''}`} {...rest}>
       {startIcon}
       {children}
       {endIcon}

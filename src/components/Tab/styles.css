@@ -1,13 +1,13 @@
-.tab-wrapper {
+.gtabs {
   overflow: auto;
   position: relative;
 }
 
-.tab-wrapper::-webkit-scrollbar {
+.gtabs::-webkit-scrollbar {
   display: none;
 }
 
-.tab-container {
+.gtabs .gtabs__container {
   display: inline-flex;
   align-items: center;
   border: 2px solid var(--primary);
@@ -15,18 +15,18 @@
   overflow: hidden;
 }
 
-.tab-container > *:not(:last-child) {
+.gtabs .gtabs__container > *:not(:last-child) {
   border-right: 2px solid var(--primary);
 }
 
 @media screen and (max-width: 768px) {
-  .tab-container {
+  .gtabs .gtabs__container {
     border-radius: 0;
     border: none;
     gap: 12px;
   }
 
-  .tab-container > *:not(:last-child) {
+  .gtabs .gtabs__container > *:not(:last-child) {
     border-right: none;
   }
 }

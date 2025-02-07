@@ -6,7 +6,7 @@ const NavBar: React.FC = () => {
   return (
     <nav>
       <Container>
-        <div className="navbar-wrapper">
+        <div className="navbar">
           <DarkModeToggle />
         </div>
       </Container>

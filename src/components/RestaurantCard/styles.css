@@ -1,4 +1,4 @@
-.restaurant-card {
+.rcard {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 4px var(--shadow);
@@ -6,10 +6,19 @@
   cursor: pointer;
   position: relative;
   transition: transform 0.2s ease-out, box-shadow 0.3s ease;
-  animation: card-reveal 0.3s ease-out;
+  animation: rcard-reveal 0.3s ease-out;
 }
 
-.restaurant-card img {
+.rcard:focus {
+  outline: 2px solid var(--primary);
+}
+
+.rcard:hover {
+  box-shadow: 0 4px 8px var(--shadow);
+  transform: scale(1.05);
+}
+
+.rcard .rcard__image {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -18,25 +27,25 @@
   background-position: center;
 }
 
-.restaurant-card .content {
+.rcard .rcard__content {
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.restaurant-card h3 {
+.rcard .rcard__title {
   margin: 0;
   font-size: 0.875rem;
   font-weight: 500;
 }
 
-.restaurant-card .label-wrapper {
+.rcard .rcard__label-block {
   display: flex;
   gap: 8px;
 }
 
-.restaurant-card .label {
+.rcard .rcard__label-item {
   padding: 2px 4px;
   background-color: var(--muted);
   border-radius: 4px;
@@ -47,20 +56,11 @@
   align-items: center;
 }
 
-.restaurant-card .label.highlight {
+.rcard .rcard__label--highlight {
   color: var(--success);
 }
 
-.restaurant-card:focus {
-  outline: 2px solid var(--primary);
-}
-
-.restaurant-card:hover {
-  box-shadow: 0 4px 8px var(--shadow);
-  transform: scale(1.05);
-}
-
-.restaurant-card .promotion-wrapper {
+.rcard .rcard__promo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +76,7 @@
   top: 0;
 }
 
-@keyframes card-reveal {
+@keyframes rcard-reveal {
   from {
     opacity: 0;
     transform: scale(0.8);

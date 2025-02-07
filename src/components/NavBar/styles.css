@@ -3,7 +3,7 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
-.navbar-wrapper {
+.navbar {
   display: flex;
   display: flex;
   align-items: center;

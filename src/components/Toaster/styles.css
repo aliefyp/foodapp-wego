@@ -16,24 +16,24 @@
   transition: transform 0.3s ease-out;
 }
 
-.toaster.show {
-  transform: translateX(0);
-}
-
-.toaster span {
+.toaster .toaster__message {
   flex-grow: 1;
 }
 
-.toaster .close-button {
+.toaster .toaster__close {
   cursor: pointer;
 }
 
-.toaster.error {
+.toaster.toaster--show {
+  transform: translateX(0);
+}
+
+.toaster.toaster--error {
   background-color: var(--danger);
   color: var(--danger-foreground);
 }
 
-.toaster.success {
+.toaster.toaster--success {
   background-color: var(--success);
   color: var(--success-foreground);
 }

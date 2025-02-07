@@ -1,10 +1,10 @@
-.toggle-wrapper {
+.darkmode {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.toggle {
+.darkmode .darkmode__switch {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -17,7 +17,11 @@
   transition: background-color 0.3s ease;
 }
 
-.toggle .toggle-button {
+.darkmode .darkmode__switch:focus {
+  outline: 2px solid var(--primary);
+}
+
+.darkmode .darkmode__button {
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -26,10 +30,6 @@
   transition: transform 0.3s ease;
 }
 
-.toggle.active .toggle-button {
+.darkmode .darkmode__switch--active .darkmode__button {
   transform: translateX(16px);
-}
-
-.toggle:focus {
-  outline: 2px solid var(--primary);
 }
