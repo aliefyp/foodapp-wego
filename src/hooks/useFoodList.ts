@@ -11,6 +11,7 @@ interface UseFoodList {
   search: (query: string) => void;
   loadMore: () => void;
   filterByCategory: (categoryId: string) => void;
+  changeLimit: (limit: number) => void;
 }
 
 const useFoodList = (): UseFoodList => {
@@ -20,7 +21,7 @@ const useFoodList = (): UseFoodList => {
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
   const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(9);
+  const [limit, setLimit] = useState(12);
   const fetchData = useFetch();
 
   const [debouncedQuery] = useDebounce(searchQuery, 500);
@@ -50,6 +51,11 @@ const useFoodList = (): UseFoodList => {
     setSkip(0);
   }, []);
 
+  const changeLimit = useCallback((limit: number) => {
+    setLimit(limit);
+    setSkip(0);
+  }, []);
+
   const loadMore = useCallback(() => {
     setSkip(skip + limit);
   }, [skip, limit]);
@@ -71,7 +77,8 @@ const useFoodList = (): UseFoodList => {
     refetch: fetchFoodList,
     search,
     loadMore,
-    filterByCategory
+    filterByCategory,
+    changeLimit,
   }
 }
 

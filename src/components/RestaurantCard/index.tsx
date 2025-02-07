@@ -42,10 +42,6 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
 }) => {
   const activePromo = PROMO_ATTRIBUTES.find((item) => promotion?.toLowerCase().includes(item.key))
 
-  if (name.includes('628b5decc94a27754f30e6f1')) {
-    console.log('render')
-  }
-
   return (
     <div
       className="restaurant-card"

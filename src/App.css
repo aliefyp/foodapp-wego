@@ -1,12 +1,8 @@
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+main {
   padding: 24px;
 }
 
-main {
-  padding: 24px;
+.content-wrapper {
   display: flex;
   flex-direction: column;
   gap: 40px;
