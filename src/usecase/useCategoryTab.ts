@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TabItemProps } from "../components/TabItem";
 import { Category } from "../types/foodCategories";
 
 interface UseCategoryTabProps {
@@ -7,7 +8,7 @@ interface UseCategoryTabProps {
 
 interface UseCategoryTabInterface {
   activeCategory: Category['id'];
-  categoryList: (Category & { isActive: boolean })[];
+  categoryList: TabItemProps[]
   handleCategoryClick: (id: Category['id']) => void;
 }
 
@@ -30,8 +31,16 @@ const useCategoryTab = ({ foodCategories }: UseCategoryTabProps): UseCategoryTab
   }
 
   const categoryList = [
-    { id: '', name: 'All', isActive: activeCategory === '' },
-    ...foodCategories.map((item) => ({ ...item, isActive: activeCategory === item.id }))
+    {
+      text: 'All',
+      active: activeCategory === '',
+      onClick: () => handleCategoryClick('')
+    },
+    ...foodCategories.map((category) => ({
+      text: category.name,
+      active: activeCategory === category.id,
+      onClick: () => handleCategoryClick(category.id)
+    }))
   ];
   
   return {

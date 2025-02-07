@@ -4,7 +4,6 @@ import NavBar from '../../components/NavBar';
 import RestaurantGrid from '../../components/RestaurantGrid';
 import Searchbar from '../../components/Searchbar';
 import Tab from '../../components/Tab';
-import TabItem from '../../components/TabItem';
 import useFoodCategories from '../../hooks/useFoodCategories';
 import useFoodList from '../../hooks/useFoodList';
 import { useToaster } from '../../hooks/useToaster';
@@ -31,28 +30,24 @@ const FoodListPage = () => {
   const {
     activeCategory,
     categoryList,
-    handleCategoryClick
   } = useCategoryTab({
     foodCategories
   })
 
   const {
+    searchQuery,
     filteredFoodList,
-    searchFood,
-    loadMoreFood,
+    handleSearchChange,
+    handleLoadMore,
+    handleSearchClear,
   } = useFoodFilter({
     foodList,
     categoryId: activeCategory,
   })
 
   useEffect(() => {
-    if (errorFoodCategories) {
-      toaster.open({ message: errorFoodCategories, variant: 'error' });
-    }
-
-    if (errorFoodList) {
-      toaster.open({ message: errorFoodList, variant: 'error' });
-    }
+    if (errorFoodCategories) toaster.open(errorFoodCategories);
+    if (errorFoodList) toaster.open(errorFoodList);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorFoodCategories, errorFoodList]);
 
@@ -62,24 +57,21 @@ const FoodListPage = () => {
       <main>
         <Container>
           <div className='food-list-page-wrapper'>
-            <Searchbar onChange={event => searchFood((event.target as HTMLInputElement).value)} />
-            <Tab loading={loadingFoodCategories}>
-              {categoryList.map((tab) => (
-                <TabItem
-                  key={tab.id}
-                  active={tab.isActive}
-                  onClick={() => handleCategoryClick(tab.id)}
-                >
-                  {tab.name}
-                </TabItem>
-              ))}
-            </Tab>
+            <Searchbar
+              value={searchQuery}
+              onChange={handleSearchChange}
+              onClear={handleSearchClear}
+            />
+            <Tab
+              loading={loadingFoodCategories}
+              items={categoryList}
+            />
             <RestaurantGrid
               loading={loadingFoodList}
               error={errorFoodList}
               items={filteredFoodList}
               onError={refetchFoodList}
-              onLoadMore={loadMoreFood}
+              onLoadMore={handleLoadMore}
             />
           </div>
         </Container>

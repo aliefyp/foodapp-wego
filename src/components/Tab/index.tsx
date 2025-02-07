@@ -1,14 +1,15 @@
 import React from "react";
 import Loader from "../Loader";
+import TabItem, { TabItemProps } from "../TabItem";
 import "./styles.css";
 
 interface TabProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  loading: boolean
+  loading: boolean;
+  items: TabItemProps[];
 }
 
 const Tab: React.FC<TabProps> = ({
-  children,
+  items,
   loading,
   className,
   ...restProps
@@ -27,7 +28,12 @@ const Tab: React.FC<TabProps> = ({
         className={`tab-container ${className}`}
         {...restProps}
       >
-        {children}
+        {items.map((item, index) => (
+          <TabItem
+            key={index}
+            {...item}
+          />
+        ))}
       </div>
     </div>
   )

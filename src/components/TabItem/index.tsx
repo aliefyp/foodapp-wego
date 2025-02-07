@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 
-interface TabItemProps {
-  children: React.ReactNode
+export interface TabItemProps {
+  children?: React.ReactNode
+  text?: string;
   active?: boolean
   onClick?: () => void
 }
 
 const TabItem: React.FC<TabItemProps> = ({
+  text,
   active = false,
   children,
   onClick
@@ -38,7 +40,7 @@ const TabItem: React.FC<TabItemProps> = ({
       onFocus={() => setIsFocus(true)}
       onBlur={() => setIsFocus(false)}
     >
-      {children}
+      {text || children}
     </div>
   )
 }

@@ -11,8 +11,21 @@
   transition: background-color 0.3s ease-out, outlined 0.3s ease-out;
 }
 
-.searchbar-wrapper svg {
-  color: var(--);
+.searchbar-wrapper .clear-button {
+  margin-right: 8px;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.searchbar-wrapper .clear-button:hover {
+  background-color: var(--muted-hover);
 }
 
 .searchbar-wrapper input {

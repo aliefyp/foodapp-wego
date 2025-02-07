@@ -4,10 +4,12 @@ import { DEFAULT_LIMIT } from "../constants";
 import { Root as FoodList } from "../types/foodList";
 
 interface UseFoodFilterInterface {
+  searchQuery: string;
   filteredFoodList: FoodList['foods'];
-  searchFood: (query: string) => void;
-  loadMoreFood: () => void;
-  changeDisplayLimit: (limit: number) => void;
+  handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleLoadMore: () => void;
+  handleDisplayLimitChange: (limit: number) => void;
+  handleSearchClear: () => void;
 }
 
 interface UseFoodFilterProps {
@@ -22,17 +24,22 @@ const useFoodFilter = ({ foodList, categoryId }: UseFoodFilterProps): UseFoodFil
 
   const [debouncedQuery] = useDebounce(searchQuery, 500);
 
-  const searchFood = useCallback((query: string) => {
-    setSearchQuery(query);
+  const handleSearchChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
     setSkip(0);
   }, []);
 
-  const changeDisplayLimit = useCallback((limit: number) => {
+  const handleSearchClear = useCallback(() => {
+    setSearchQuery('');
+    setSkip(0);
+  }, [])
+
+  const handleDisplayLimitChange = useCallback((limit: number) => {
     setLimit(limit);
     setSkip(0);
   }, []);
 
-  const loadMoreFood = useCallback(() => {
+  const handleLoadMore = useCallback(() => {
     setSkip(skip + limit);
   }, [skip, limit]);
 
@@ -46,10 +53,12 @@ const useFoodFilter = ({ foodList, categoryId }: UseFoodFilterProps): UseFoodFil
   }, [categoryId])
 
   return {
+    searchQuery,
     filteredFoodList,
-    searchFood,
-    loadMoreFood,
-    changeDisplayLimit,
+    handleSearchChange,
+    handleLoadMore,
+    handleDisplayLimitChange,
+    handleSearchClear,
   }
 }
 
