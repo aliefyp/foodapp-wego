@@ -1,36 +1,43 @@
 import { useState } from "react";
-
-interface CategoryItem {
-  id: string;
-  name: string;
-}
-
-type CategoryId = CategoryItem['id'];
+import { Category } from "../types/foodCategories";
 
 interface UseCategoryTabProps {
-  items: CategoryItem[]
+  foodCategories: Category[]
 }
 
 interface UseCategoryTabInterface {
-  categoryTabs: (CategoryItem & { isActive: boolean })[];
-  handleTabClick: (id: CategoryId) => void;
+  activeCategory: Category['id'];
+  categoryList: (Category & { isActive: boolean })[];
+  handleCategoryClick: (id: Category['id']) => void;
 }
 
-const useCategoryTab = ({ items }: UseCategoryTabProps): UseCategoryTabInterface => {
-  const [activeTab, setActiveTab] = useState<CategoryId>('');
+/**
+ * Custom hook to manage category tabs state.
+ *
+ * @param {UseCategoryTabProps} props - The properties for the hook.
+ * @param {CategoryItem[]} props.items - Array of category items.
+ * 
+ * @returns {UseCategoryTabInterface} - An object containing:
+ *   - `categoryList`: An array of category items with an `isActive` flag indicating the active tab.
+ *   - `handleCategoryClick`: A function to handle tab click events, updating the active tab.
+ */
 
-  const handleTabClick = (id: CategoryId) => {
-    setActiveTab(id);
+const useCategoryTab = ({ foodCategories }: UseCategoryTabProps): UseCategoryTabInterface => {
+  const [activeCategory, setActiveCategory] = useState<Category['id']>('');
+
+  const handleCategoryClick = (id: Category['id']) => {
+    setActiveCategory(id);
   }
 
-  const categoryTabs = [
-    { id: '', name: 'All', isActive: activeTab === '' },
-    ...items.map((item) => ({ ...item, isActive: activeTab === item.id }))
+  const categoryList = [
+    { id: '', name: 'All', isActive: activeCategory === '' },
+    ...foodCategories.map((item) => ({ ...item, isActive: activeCategory === item.id }))
   ];
   
   return {
-    categoryTabs,
-    handleTabClick
+    activeCategory,
+    categoryList,
+    handleCategoryClick
   }
 }
 

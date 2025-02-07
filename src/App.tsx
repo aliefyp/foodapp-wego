@@ -11,6 +11,7 @@ import TabItem from './components/TabItem'
 import useFoodCategories from './hooks/useFoodCategories'
 import useFoodList from './hooks/useFoodList'
 import useCategoryTab from './usecase/useCategoryTab'
+import useFoodFilter from './usecase/useFoodFilter'
 
 function App() {
   const {
@@ -23,19 +24,24 @@ function App() {
     foodList,
     loading: loadingFoodList,
     error: errorFoodList,
-    loadMore,
-    search,
-    filterByCategory,
   } = useFoodList();
 
-  const { categoryTabs, handleTabClick } = useCategoryTab({
-    items: foodCategories.map((item) => ({ id: item.id, name: item.name }))
+  const {
+    activeCategory,
+    categoryList,
+    handleCategoryClick
+  } = useCategoryTab({
+    foodCategories
   })
 
-  const handleTabChange = (id: string) => {
-    filterByCategory(id);
-    handleTabClick(id);
-  };
+  const {
+    filteredFoodList,
+    searchFood,
+    loadMoreFood,
+  } = useFoodFilter({
+    foodList,
+    categoryId: activeCategory,
+  })
 
   return (
     <>
@@ -43,20 +49,20 @@ function App() {
       <main>
         <Container>
           <div className='content-wrapper'>
-            <Searchbar onChange={event => search((event.target as HTMLInputElement).value)} />
+            <Searchbar onChange={event => searchFood((event.target as HTMLInputElement).value)} />
             <Tab>
-              {categoryTabs.map((tab) => (
+              {categoryList.map((tab) => (
                 <TabItem
                   key={tab.id}
                   active={tab.isActive}
-                  onClick={() => handleTabChange(tab.id)}
+                  onClick={() => handleCategoryClick(tab.id)}
                 >
                   {tab.name}
                 </TabItem>
               ))}
             </Tab>
             <RestaurantGrid>
-              {foodList.map((item) => (
+              {filteredFoodList.map((item) => (
                 <RestaurantCard
                   key={item.id}
                   image={item.imageUrl}
@@ -73,7 +79,7 @@ function App() {
               variant="secondary"
               startIcon={<HiOutlinePlus />}
               style={{ margin: 'auto' }}
-              onClick={loadMore}
+              onClick={loadMoreFood}
             >
               Show more
             </Button>

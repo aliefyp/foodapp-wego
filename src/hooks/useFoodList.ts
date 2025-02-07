@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { useDebounce } from "use-debounce";
 import { Root as FoodList } from "../types/foodList";
 import useFetch from "./useFetch";
 
@@ -8,23 +7,13 @@ interface UseFoodList {
   loading: boolean;
   foodList: FoodList['foods'];
   refetch: () => Promise<void>;
-  search: (query: string) => void;
-  loadMore: () => void;
-  filterByCategory: (categoryId: string) => void;
-  changeLimit: (limit: number) => void;
 }
 
 const useFoodList = (): UseFoodList => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [foodList, setFoodList] = useState<FoodList['foods']>([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
-  const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(12);
   const fetchData = useFetch();
-
-  const [debouncedQuery] = useDebounce(searchQuery, 500);
 
   const fetchFoodList = useCallback(async () => {
     try {
@@ -46,39 +35,11 @@ const useFoodList = (): UseFoodList => {
     }
   }, [fetchFoodList, fetchData, loading]);
 
-  const search = useCallback((query: string) => {
-    setSearchQuery(query);
-    setSkip(0);
-  }, []);
-
-  const changeLimit = useCallback((limit: number) => {
-    setLimit(limit);
-    setSkip(0);
-  }, []);
-
-  const loadMore = useCallback(() => {
-    setSkip(skip + limit);
-  }, [skip, limit]);
-
-  const filterByCategory = useCallback((categoryId: string) => {
-    setCategoryFilter(categoryId);
-    setSkip(0);
-  }, []);
-
-  const filteredFoodList = foodList
-    .filter(item => item.name.toLowerCase().includes(debouncedQuery.toLowerCase()))
-    .filter(item => categoryFilter ? item.categoryId === categoryFilter : true)
-    .slice(0, skip + limit);
-
   return {
     error,
     loading,
-    foodList: filteredFoodList,
+    foodList,
     refetch: fetchFoodList,
-    search,
-    loadMore,
-    filterByCategory,
-    changeLimit,
   }
 }
 
