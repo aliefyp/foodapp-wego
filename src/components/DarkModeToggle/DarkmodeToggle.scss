@@ -1,0 +1,38 @@
+.darkmode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 24px;
+    width: 40px;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: var(--muted-hover);
+    transition: background-color 0.3s ease;
+
+    &:focus {
+      outline: 2px solid var(--primary);
+    }
+
+    &--active {
+      .darkmode__button {
+        transform: translateX(16px);
+      }
+    }
+  }
+
+  &__button {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--muted-foreground);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+}
+

@@ -1,11 +1,11 @@
 import { HiOutlinePlus } from 'react-icons/hi';
 import { DEFAULT_LIMIT } from '../../constants';
 import { Root as FoodList } from '../../types/foodList';
-import Button from '../Button';
-import Loader from '../Loader';
-import MessageBlock from '../MessageBlock';
-import RestaurantCard from '../RestaurantCard';
-import './styles.css';
+import Button from '../Button/Button';
+import Loader from '../Loader/Loader';
+import MessageBlock from '../MessageBlock/MessageBlock';
+import RestaurantCard from '../RestaurantCard/RestaurantCard';
+import './RestaurantGrid.scss';
 
 interface RestaurantGridProps extends React.HTMLAttributes<HTMLDivElement> {
   items: FoodList['foods'];

@@ -1,7 +1,7 @@
 import React from "react";
-import Loader from "../Loader";
-import TabItem, { TabItemProps } from "../TabItem";
-import "./styles.css";
+import Loader from "../Loader/Loader";
+import TabItem, { TabItemProps } from "../TabItem/TabItem";
+import "./Tab.scss";
 
 interface TabProps extends React.HTMLAttributes<HTMLDivElement> {
   loading: boolean;

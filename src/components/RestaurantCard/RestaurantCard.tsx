@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { HiGift, HiStar } from 'react-icons/hi';
-import './styles.css';
+import './RestaurantCard.scss';
 
 const PROMO_ATTRIBUTES = [
   {

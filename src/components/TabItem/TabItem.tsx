@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./styles.css";
+import "./TabItem.scss";
 
 export interface TabItemProps {
   children?: React.ReactNode

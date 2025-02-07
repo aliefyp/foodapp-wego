@@ -1,10 +1,10 @@
-import './styles.css'
+import './Loader.scss'
 
 type LoaderProps = React.HTMLAttributes<HTMLDivElement>
 
 const Loader = (props: LoaderProps) => {
   return (
-    <div className="loader" {...props} />
+    <div className="gloader" {...props} />
   )
 }
 

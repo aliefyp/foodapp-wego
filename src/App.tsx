@@ -1,5 +1,5 @@
 import ToasterProvider from './contexts/ToasterProvider'
-import FoodListPage from './pages/FoodListPage'
+import FoodListPage from './pages/FoodListPage/FoodListPage'
 
 function App() {
   return (

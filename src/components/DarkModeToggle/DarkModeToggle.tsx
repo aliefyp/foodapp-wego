@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
-import './styles.css';
+import './DarkmodeToggle.scss';
 
 export default function DarkModeToggle() {
   // Check user preference from localStorage

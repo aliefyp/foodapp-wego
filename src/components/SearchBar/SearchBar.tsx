@@ -1,5 +1,5 @@
 import { HiOutlineSearch, HiOutlineX } from 'react-icons/hi';
-import './styles.css';
+import './SearchBar.scss';
 
 interface SearchbarProps extends React.HTMLAttributes<HTMLInputElement> {
   value?: string;

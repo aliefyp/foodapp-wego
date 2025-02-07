@@ -1,6 +1,6 @@
-import Container from "../Container";
-import DarkModeToggle from "../DarkModeToggle";
-import './styles.css';
+import Container from "../Container/Container";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+import './NavBar.scss';
 
 const NavBar: React.FC = () => {
   return (

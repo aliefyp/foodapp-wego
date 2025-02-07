@@ -1,0 +1,33 @@
+.gtabs {
+  overflow: auto;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__container {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  &__container > *:not(:last-child) {
+    border-right: 2px solid var(--primary);
+  }
+
+  @media screen and (max-width: 768px) {
+    &__container {
+      border-radius: 0;
+      border: none;
+      gap: 12px;
+    }
+
+    &__container > *:not(:last-child) {
+      border-right: none;
+    }
+  }
+}
+

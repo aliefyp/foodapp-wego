@@ -1,0 +1,30 @@
+.gtab-item {
+  display: inline-block;
+  padding: 8px 24px;
+  background-color: var(--input);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--muted);
+    outline: none;
+  }
+
+  &--active {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+
+    &:hover {
+      background-color: var(--primary-hover);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    border-radius: 8px;
+
+    &:hover {
+      border: none;
+    }
+  }
+}

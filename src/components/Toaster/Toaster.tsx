@@ -1,5 +1,5 @@
 import { HiOutlineCheck, HiOutlineExclamation, HiOutlineXCircle } from 'react-icons/hi';
-import './styles.css';
+import './Toaster.scss';
 
 export type ToasterVariants = "success" | "error";
 interface ToasterProps {

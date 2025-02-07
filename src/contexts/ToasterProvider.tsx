@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Toaster from "../components/Toaster";
+import Toaster from "../components/Toaster/Toaster";
 import ToasterContext, { ToasterAttributes } from "./ToasterContext";
 
 interface ToasterProviderProps {

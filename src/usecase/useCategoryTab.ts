@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TabItemProps } from "../components/TabItem";
+import { TabItemProps } from "../components/TabItem/TabItem";
 import { Category } from "../types/foodCategories";
 
 interface UseCategoryTabProps {

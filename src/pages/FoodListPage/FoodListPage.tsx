@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
-import Container from '../../components/Container';
-import NavBar from '../../components/NavBar';
-import RestaurantGrid from '../../components/RestaurantGrid';
-import Searchbar from '../../components/Searchbar';
-import Tab from '../../components/Tab';
+import Container from '../../components/Container/Container';
+import NavBar from '../../components/NavBar/NavBar';
+import RestaurantGrid from '../../components/RestaurantGrid/RestaurantGrid';
+import Searchbar from '../../components/SearchBar/SearchBar';
+import Tab from '../../components/Tab/Tab';
 import useFoodCategories from '../../hooks/useFoodCategories';
 import useFoodList from '../../hooks/useFoodList';
 import { useToaster } from '../../hooks/useToaster';
 import useCategoryTab from '../../usecase/useCategoryTab';
 import useFoodFilter from '../../usecase/useFoodFilter';
-import './styles.css';
+import './FoodListPage.scss';
 
 const FoodListPage = () => {
   const toaster = useToaster();

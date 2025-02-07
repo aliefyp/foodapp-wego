@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { ToasterVariants } from "../components/Toaster";
+import { ToasterVariants } from "../components/Toaster/Toaster";
 
 
 interface ToasterContextInterface {

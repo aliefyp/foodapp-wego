@@ -1,5 +1,5 @@
-import Button from "../Button";
-import './styles.css';
+import Button from "../Button/Button";
+import './MessageBlock.scss';
 
 interface MessageBlockProps {
   title?: string;
