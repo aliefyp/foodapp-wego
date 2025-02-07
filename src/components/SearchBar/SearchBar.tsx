@@ -16,11 +16,12 @@ const Searchbar = ({ value, onChange, onClear, ...rest }: SearchbarProps) => {
         placeholder="Enter Restaurant Name"
         value={value}
         onChange={onChange}
+        data-testid="searchbar-input"
         {...rest}
       />
       {value && (
-        <div className='gsearchbar__clear'>
-          <HiOutlineX size={16} onClick={onClear} />
+        <div className='gsearchbar__clear' data-testid="searchbar-clear" onClick={onClear}>
+          <HiOutlineX size={16} />
         </div>
       )}
     </div>

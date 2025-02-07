@@ -39,6 +39,7 @@ const TabItem: React.FC<TabItemProps> = ({
       onClick={onClick}
       onFocus={() => setIsFocus(true)}
       onBlur={() => setIsFocus(false)}
+      data-testid="tab-item"
     >
       {text || children}
     </div>

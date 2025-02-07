@@ -4,7 +4,7 @@ import TabItem, { TabItemProps } from "../TabItem/TabItem";
 import "./Tab.scss";
 
 interface TabProps extends React.HTMLAttributes<HTMLDivElement> {
-  loading: boolean;
+  loading?: boolean;
   items: TabItemProps[];
 }
 

@@ -2,9 +2,9 @@ import './Loader.scss'
 
 type LoaderProps = React.HTMLAttributes<HTMLDivElement>
 
-const Loader = (props: LoaderProps) => {
+const Loader = ({ className, ...props }: LoaderProps) => {
   return (
-    <div className="gloader" {...props} />
+    <div className={`gloader ${className || ''}`} data-testid="global-loader" {...props} />
   )
 }
 

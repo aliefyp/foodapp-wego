@@ -9,10 +9,10 @@ import './RestaurantGrid.scss';
 
 interface RestaurantGridProps extends React.HTMLAttributes<HTMLDivElement> {
   items: FoodList['foods'];
-  loading: boolean;
-  error: string;
-  onError: () => void;
-  onLoadMore: () => void;
+  loading?: boolean;
+  error?: string;
+  onError?: () => void;
+  onLoadMore?: () => void;
 }
 
 const RestaurantGrid: React.FC<RestaurantGridProps> = ({
@@ -26,7 +26,7 @@ const RestaurantGrid: React.FC<RestaurantGridProps> = ({
 }) => {
   if (loading) {
     return (
-      <div className="rgrid__grid">
+      <div className="rgrid__grid" data-testid="restaurant-grid-loader">
         {[...new Array(DEFAULT_LIMIT)].map((_, index) => (
           <Loader key={index} style={{ height: 280 }} />
         ))}
@@ -37,6 +37,7 @@ const RestaurantGrid: React.FC<RestaurantGridProps> = ({
   if (error) {
     return (
       <MessageBlock
+        data-testid="restaurant-grid-error"
         title="Something went wrong"
         message={error}
         image="/image-error.svg"
@@ -49,6 +50,7 @@ const RestaurantGrid: React.FC<RestaurantGridProps> = ({
   if (items.length === 0) {
     return (
       <MessageBlock
+        data-testid="restaurant-grid-empty"
         title="Ooops..."
         message="No results found."
         image="/image-empty.svg"
@@ -77,6 +79,7 @@ const RestaurantGrid: React.FC<RestaurantGridProps> = ({
           variant="secondary"
           startIcon={<HiOutlinePlus />}
           style={{ margin: 'auto' }}
+          data-testid="load-more-button"
           onClick={onLoadMore}
         >
           Show more

@@ -46,6 +46,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
     <div
       className="rcard"
       tabIndex={0}
+      data-testid="restaurant-card"
       {...restProps}
     >
       <img className="rcard__image" src={image} alt={name} loading="lazy" />

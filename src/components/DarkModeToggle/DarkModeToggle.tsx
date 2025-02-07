@@ -42,7 +42,7 @@ export default function DarkModeToggle() {
   }, [darkMode, isFocus, toggleDarkMode])
 
   return (
-    <div className="darkmode">
+    <div className="darkmode" data-testid="darkmode-toggle">
       {darkMode ? <HiOutlineMoon /> : <HiOutlineSun />}
       <div
         tabIndex={0}

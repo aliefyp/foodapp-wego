@@ -1,7 +1,7 @@
 import Button from "../Button/Button";
 import './MessageBlock.scss';
 
-interface MessageBlockProps {
+interface MessageBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   message?: string;
   image?: string;
@@ -17,9 +17,10 @@ const MessageBlock: React.FC<MessageBlockProps> = ({
   imageAlt,
   actionText,
   onClick,
+  ...rest
 }) => {
   return (
-    <div className="message-block">
+    <div className="message-block" {...rest}>
       {image && (
         <img
           className="message-block__image"
