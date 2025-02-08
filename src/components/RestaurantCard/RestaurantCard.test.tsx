@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard, { RestaurantCardProps } from './RestaurantCard';
 
 const mockProps: RestaurantCardProps = {
   name: 'Test Restaurant',

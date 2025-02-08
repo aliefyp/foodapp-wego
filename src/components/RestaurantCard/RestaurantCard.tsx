@@ -20,7 +20,7 @@ const PROMO_ATTRIBUTES = [
   }
 ]
 
-interface RestaurantCardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface RestaurantCardProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   image: string;
   rating: number;
