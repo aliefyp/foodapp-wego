@@ -9,6 +9,16 @@ interface UseFoodCategories {
   refetch: () => Promise<void>;
 }
 
+/**
+ * A custom hook that fetches food categories from a remote endpoint.
+ * 
+ * @returns {UseFoodCategories} An object containing:
+ * - `error`: A string that holds any error message if the fetch fails.
+ * - `loading`: A boolean indicating whether the data is currently being fetched.
+ * - `foodCategories`: An array of category objects fetched from the endpoint.
+ * - `refetch`: A function to manually refetch the food categories.
+ */
+
 const useFoodCategories = (): UseFoodCategories => {
   const [loading, setLoading] = useState(true);
   const [error, setError] =  useState('');

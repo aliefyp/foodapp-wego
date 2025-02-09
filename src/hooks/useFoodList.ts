@@ -9,6 +9,18 @@ interface UseFoodList {
   refetch: () => Promise<void>;
 }
 
+  /**
+   * Hook to fetch food list from a predefined API endpoint.
+   *
+   * It will fetch the list of food items and return the list of food items,
+   * loading state, error message and a function to refetch the list.
+   *
+   * @returns An object with the following properties:
+   *   error: string - The error message if the fetch fails.
+   *   loading: boolean - The loading state of the fetch.
+   *   foodList: FoodList['foods'] - The list of food items.
+   *   refetch: () => Promise<void> - A function to refetch the list of food items.
+   */
 const useFoodList = (): UseFoodList => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');

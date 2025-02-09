@@ -30,6 +30,29 @@ export interface RestaurantCardProps extends React.HTMLAttributes<HTMLDivElement
   maxCookTime: number;
 }
 
+/**
+ * RestaurantCard component
+ * 
+ * @example
+ * <RestaurantCard
+ *   name="Test Restaurant"
+ *   image="test.jpg"
+ *   rating={4.5}
+ *   promotion="1+1"
+ *   isNew={true}
+ *   minCookTime={10}
+ *   maxCookTime={20}
+ * />
+ *
+ * @prop {string} name - Restaurant name
+ * @prop {string} image - Restaurant image URL
+ * @prop {number} rating - Restaurant rating (out of 5)
+ * @prop {string} [promotion] - Restaurant promotion
+ * @prop {boolean} isNew - Whether the restaurant is new
+ * @prop {number} minCookTime - Minimum cooking time
+ * @prop {number} maxCookTime - Maximum cooking time
+ *
+ */
 const RestaurantCard: React.FC<RestaurantCardProps> = ({
   name,
   image,

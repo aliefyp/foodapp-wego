@@ -8,6 +8,19 @@ export interface TabItemProps {
   onClick?: () => void
 }
 
+/**
+ * A component to render a tab item. It supports keyboard navigation and
+ * selection.
+ *
+ * @example
+ * <TabItem text="Tab 1" active />
+ * <TabItem onClick={() => console.log("Tab 2 clicked")}>Tab 2</TabItem>
+ *
+ * @prop {React.ReactNode} [children] - The content of the tab item.
+ * @prop {string} [text] - The text of the tab item.
+ * @prop {boolean} [active] - Whether the tab item is active. Defaults to false.
+ * @prop {() => void} [onClick] - A callback when the tab item is clicked.
+ */
 const TabItem: React.FC<TabItemProps> = ({
   text,
   active = false,

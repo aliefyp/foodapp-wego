@@ -9,6 +9,18 @@ interface ToasterProps {
   variant?: ToasterVariants;
 }
 
+/**
+ * A notification component that will be displayed at the bottom right of the page.
+ * It can be used to communicate success or error messages to the user.
+ *
+ * @example
+ * <Toaster show={true} message="This is a success message" variant="success" onClose={() => {}} />
+ *
+ * @param {boolean} show - Whether or not the toaster should be displayed
+ * @param {string} [message="Something went wrong"] - The message to be displayed in the toaster
+ * @param {ToasterVariants} [variant="error"] - The variant of the toaster, either "success" or "error"
+ * @param {() => void} onClose - The function to be called when the close button is clicked
+ */
 const Toaster = ({
   show,
   message = "Something went wrong",

@@ -15,6 +15,22 @@ interface RestaurantGridProps extends React.HTMLAttributes<HTMLDivElement> {
   onLoadMore?: () => void;
 }
 
+/**
+ * RestaurantGrid component
+ * 
+ * @example
+ * <RestaurantGrid
+ *   items={[{ id: '1', name: 'Restaurant 1', imageUrl: 'https://example.com/1.jpg', rating: 4.5, promotion: '1+1', isNew: true, minCookTime: 10, maxCookTime: 20 }]}
+ * />
+ *
+ * @prop {FoodList['foods']} items - Array of food items
+ * @prop {boolean} [loading] - Whether the component is loading
+ * @prop {string} [error] - Error message
+ * @prop {() => void} [onError] - Function to call when error message is clicked
+ * @prop {() => void} [onLoadMore] - Function to call when "Show more" button is clicked
+ * @prop {string} [className] - Additional class name for the component
+ *
+ */
 const RestaurantGrid: React.FC<RestaurantGridProps> = ({
   items,
   loading,

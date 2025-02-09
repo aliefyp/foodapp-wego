@@ -17,6 +17,15 @@ interface UseFoodFilterProps {
   foodList: FoodList['foods'];
 }
 
+  /**
+   * A custom hook that filters food items based on a search query and category.
+   *
+   * @param {UseFoodFilterProps} props - An object containing the food list and the
+   * currently active category.
+   * @returns {UseFoodFilterInterface} An object containing the filtered food list,
+   * the search query, and functions to handle search changes, load more items,
+   * change the display limit, and clear the search query.
+   */
 const useFoodFilter = ({ foodList, categoryId }: UseFoodFilterProps): UseFoodFilterInterface => {
   const [searchQuery, setSearchQuery] = useState('');
   const [skip, setSkip] = useState(0);

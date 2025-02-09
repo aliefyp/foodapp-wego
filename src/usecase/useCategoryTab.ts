@@ -16,11 +16,12 @@ interface UseCategoryTabInterface {
  * Custom hook to manage category tabs state.
  *
  * @param {UseCategoryTabProps} props - The properties for the hook.
- * @param {CategoryItem[]} props.items - Array of category items.
+ * @param {Category[]} props.foodCategories - Array of category items.
  * 
  * @returns {UseCategoryTabInterface} - An object containing:
- *   - `categoryList`: An array of category items with an `isActive` flag indicating the active tab.
- *   - `handleCategoryClick`: A function to handle tab click events, updating the active tab.
+ *   - `activeCategory`: The ID of the currently active category.
+ *   - `categoryList`: An array of tab items with each tab having a text label and an active state.
+ *   - `handleCategoryClick`: A function to handle category tab clicks, updating the active category.
  */
 
 const useCategoryTab = ({ foodCategories }: UseCategoryTabProps): UseCategoryTabInterface => {

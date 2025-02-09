@@ -13,6 +13,18 @@ const DEFAULT_ATTRIBUTE = {
 };
 
 
+/**
+ * Provides a context to manage and display a toaster notification.
+ * This provider enables the `open` and `close` functionality for the toaster,
+ * allowing components within its tree to trigger notifications with customizable
+ * messages, auto-close functionality, and variants.
+ *
+ * @param {ToasterProviderProps} props - The properties object.
+ * @param {React.ReactNode} props.children - The children components that will have access to the toaster context.
+ *
+ * @returns {JSX.Element} A context provider component wrapping its children with toaster functionality.
+ */
+
 const ToasterProvider = ({ children }: ToasterProviderProps) => {
   const [isOpen, setOpen] = useState(false);
   const [attributes, setAttributes] =

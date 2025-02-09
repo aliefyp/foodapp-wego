@@ -2,6 +2,18 @@ import { useCallback, useEffect, useState } from "react";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import './DarkmodeToggle.scss';
 
+/**
+ * A React component that provides a toggle switch for dark mode.
+ * 
+ * This component checks the user's theme preference from localStorage and applies
+ * the preferred theme to the document body. It allows users to toggle between dark 
+ * and light modes, persisting the selection in localStorage. It also captures focus 
+ * and keyboard events to enable toggling via the 'Enter' or 'Space' keys.
+ * 
+ * The component uses icons to represent the current mode (sun for light mode, moon for dark mode)
+ * and provides a visual switch that can be activated via mouse click or keyboard interaction.
+ */
+
 export default function DarkModeToggle() {
   // Check user preference from localStorage
   const storedTheme = localStorage.getItem("theme");
