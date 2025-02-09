@@ -57,22 +57,26 @@ const FoodListPage = () => {
       <main>
         <Container>
           <div className='food-list-page'>
-            <Searchbar
-              value={searchQuery}
-              onChange={handleSearchChange}
-              onClear={handleSearchClear}
-            />
-            <Tab
-              loading={loadingFoodCategories}
-              items={categoryList}
-            />
-            <RestaurantGrid
-              loading={loadingFoodList}
-              error={errorFoodList}
-              items={filteredFoodList}
-              onError={refetchFoodList}
-              onLoadMore={handleLoadMore}
-            />
+            <section className='food-list-page__section food-list-page__section--sticky'>
+              <Searchbar
+                value={searchQuery}
+                onChange={handleSearchChange}
+                onClear={handleSearchClear}
+              />
+              <Tab
+                loading={loadingFoodCategories}
+                items={categoryList}
+              />
+            </section>
+            <section className='food-list-page__section'>
+              <RestaurantGrid
+                loading={loadingFoodList}
+                error={errorFoodList}
+                items={filteredFoodList}
+                onError={refetchFoodList}
+                onLoadMore={handleLoadMore}
+              />
+            </section>
           </div>
         </Container>
       </main>

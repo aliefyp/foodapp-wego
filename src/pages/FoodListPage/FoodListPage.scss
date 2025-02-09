@@ -1,12 +1,36 @@
 .food-list-page {
-  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-}
 
-@media screen and (max-width: 768px) {
-  .food-list-page {
-    gap: 24px;
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 24px;
+
+    &--sticky {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background-color: var(--background);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    & {
+      &__section {
+        gap: 24px;
+        padding: 16px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    & {
+      &__section {
+        gap: 16px;
+        padding: 16px;
+      }
+    }
   }
 }
